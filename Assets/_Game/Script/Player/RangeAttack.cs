@@ -1,37 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RangeAttack : MonoBehaviour {
-	
-	public Transform FirePoint;
-	public Projectile Projectile;
-	[Tooltip("fire projectile after this delay, useful to sync with the animation of firing action")]
-	public float fireDelay;
-	public float fireRate;
-	public bool inverseDirection = false;
+public class RangeAttack : MonoBehaviour
+{
 
-	float nextFire = 0;
+    public Transform FirePoint;
+    public Projectile Projectile;
+    [Tooltip("fire projectile after this delay, useful to sync with the animation of firing action")]
+    public float fireDelay;
+    public float fireRate;
+    public bool inverseDirection = false;
 
-	public bool Fire(){
-		if (GameManager.Instance.Bullet>0 && Time.time > nextFire) {
-			nextFire = Time.time + fireRate;
-			GameManager.Instance.Bullet--;
-			StartCoroutine (DelayAttack (fireDelay));
-			return true;
-		} else
-			return false;
-	}
+    float nextFire = 0;
 
-	IEnumerator DelayAttack(float time){
-		yield return new WaitForSeconds (time);
+    public bool Fire()
+    {
+        if (GameManager.Instance.Bullet > 0 && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            // GameManager.Instance.Bullet--;
+            StartCoroutine(DelayAttack(fireDelay));
+            return true;
+        }
+        else
+            return false;
+    }
 
-		var direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
+    IEnumerator DelayAttack(float time)
+    {
+        yield return new WaitForSeconds(time);
 
-		if (inverseDirection)
-			direction *= -1;
+        var direction = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
 
-		var projectile = (Projectile) Instantiate (Projectile, FirePoint.position, Quaternion.identity);
+        if (inverseDirection)
+            direction *= -1;
 
-		projectile.Initialize (gameObject, direction, Vector2.zero);
-	}
+        var projectile = (Projectile)Instantiate(Projectile, FirePoint.position, Quaternion.identity);
+
+        projectile.Initialize(gameObject, direction, Vector2.zero);
+    }
 }
