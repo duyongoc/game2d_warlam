@@ -16,19 +16,19 @@ public class MainMenu_Level : MonoBehaviour
 
     private void Start()
     {
-        var levelReached = PlayerPrefs.GetInt(worldNumber.ToString(), 1);
-        if (levelNumber <= levelReached && worldNumber <= PlayerPrefs.GetInt(GlobalValue.WorldReached, 1))
-        {
-            // TextLevel.gameObject.SetActive(true);
-            // Locked.SetActive(false);
-            TextLevel.text = levelNumber.ToString();
-        }
-        else
-        {
-            // TextLevel.gameObject.SetActive(false);
-            // Locked.SetActive(true);
-            GetComponent<Button>().interactable = false;
-        }
+        // var levelReached = PlayerPrefs.GetInt(worldNumber.ToString(), 1);
+        // if (levelNumber <= levelReached && worldNumber <= PlayerPrefs.GetInt(GlobalValue.WorldReached, 1))
+        // {
+        //     // TextLevel.gameObject.SetActive(true);
+        //     // Locked.SetActive(false);
+        //     TextLevel.text = levelNumber.ToString();
+        // }
+        // else
+        // {
+        //     // TextLevel.gameObject.SetActive(false);
+        //     // Locked.SetActive(true);
+        //     GetComponent<Button>().interactable = false;
+        // }
     }
 
     public void LoadScene()
