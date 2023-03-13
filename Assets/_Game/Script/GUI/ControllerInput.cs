@@ -19,7 +19,6 @@ public class ControllerInput : MonoBehaviour
     {
         // rangeAttack.SetActive(GameManager.Instance.Bullet > 0 ? true : false);
 
-
 		if(Input.GetKey(KeyCode.A))
 		{
 			MoveLeft();
@@ -33,6 +32,11 @@ public class ControllerInput : MonoBehaviour
 		if(Input.GetKeyDown(KeyCode.W))
 		{
 			Jump();
+		}
+		
+        if(Input.GetMouseButtonDown(0))
+		{
+			RangeAttack();
 		}
     }
 
