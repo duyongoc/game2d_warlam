@@ -34,7 +34,7 @@ public class ControllerInput : MonoBehaviour
             Jump();
         }
 
-#if !UNITY_ANDROID
+#if !UNITY_ANDROID 
         if(Input.GetMouseButtonDown(0))
 		{
 			RangeAttack();

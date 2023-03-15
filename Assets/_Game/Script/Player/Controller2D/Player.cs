@@ -273,7 +273,7 @@ public class Player : MonoBehaviour, ICanTakeDamage
 
     public void Jump()
     {
-        print("jumppp");
+        // print("jumppp");
 
         if (!isPlaying)
             return;
@@ -431,7 +431,9 @@ public class Player : MonoBehaviour, ICanTakeDamage
         if (!isPlaying)
             return;
 
+        anim.SetTrigger("hurt");
         SoundManager.PlaySfx(hurtSound, hurtSoundVolume);
+
         if (HurtEffect != null)
             Instantiate(HurtEffect, instigator.transform.position, Quaternion.identity);
 
