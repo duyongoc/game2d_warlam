@@ -39,13 +39,11 @@ public class MainMenu_StartMenu : MonoBehaviour {
 
 	public void OpenTwitter(){
 		Application.OpenURL (twitterLink);
-
 		SoundManager.PlaySfx (soundManager.soundClick);
 	}
 
 	public void OpenFacebook(){
 		Application.OpenURL (facebookLink);
-
 		SoundManager.PlaySfx (soundManager.soundClick);
 	}
 }
