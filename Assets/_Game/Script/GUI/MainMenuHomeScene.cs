@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-
+using UnityEngine.Video;
 
 public class MainMenuHomeScene : MonoBehaviour
 {
     public static MainMenuHomeScene Instance;
 
+    [SerializeField] private VideoPlayer videoPlayer;
+    [SerializeField] private string videoFileName;
 
     [Header("[Setting]")]
     public List<GameObject> views;
@@ -37,16 +39,23 @@ public class MainMenuHomeScene : MonoBehaviour
         // LevelsChoose.SetActive(false);
         // LoadingScreen.SetActive(true);
         // CharacterChoose.SetActive(false);
+
+
+
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, $"{videoFileName}.mp4");
+        videoPlayer.Play();
+        Debug.Log(videoPlayer.url);
+
         ShowInitGame();
     }
 
 
     private void ShowInitGame()
     {
-        // ShowView("FlashScene");
-        // DG.Tweening.DOVirtual.DelayedCall(6, () => ShowView("StartMenu"));
+        ShowView("FlashScene");
+        DG.Tweening.DOVirtual.DelayedCall(6, () => ShowView("StartMenu"));
 
-        ShowView("StartMenu");
+        // ShowView("StartMenu");
     }
 
 
@@ -106,30 +115,35 @@ public class MainMenuHomeScene : MonoBehaviour
     public void OnClickButtonExit()
     {
         Application.Quit();
+        SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
     public void OnClickButtonShop()
     {
         ShowView("Shop");
+        SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
     public void OnClickButtonStartMenu()
     {
         ShowView("StartMenu");
+        SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
     public void OnClickButtonSetting()
     {
         ShowView("Setting");
+        SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
     public void OnClickButtonGallary()
     {
         ShowView("Gallary");
+        SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 }

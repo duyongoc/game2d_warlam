@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | game2d_warlam</title>
+    <title>Unity WebGL Player | Walarm</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -20,7 +20,7 @@
       <div id="unity-footer">
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">game2d_warlam</div>
+        <div id="unity-build-title">Walarm</div>
       </div>
     </div>
     <script>
@@ -63,8 +63,8 @@
         codeUrl: buildUrl + "/webbuild.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "duyongoc",
-        productName: "game2d_warlam",
-        productVersion: "1.0",
+        productName: "Walarm",
+        productVersion: "1.2",
         showBanner: unityShowBanner,
       };
 
@@ -97,6 +97,7 @@
         canvas.style.height = "720px";
       }
 
+      canvas.style.background = "url('" + buildUrl + "/webbuild.jpg') center / cover";
       loadingBar.style.display = "block";
 
       var script = document.createElement("script");
