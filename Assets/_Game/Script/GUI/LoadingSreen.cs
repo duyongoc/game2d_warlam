@@ -11,6 +11,6 @@ public class LoadingSreen : MonoBehaviour {
 	}
 	
 	public static void Show(){
-		Instance.gameObject.SetActive (true);
+		// Instance.gameObject.SetActive (true);
 	}
 }
