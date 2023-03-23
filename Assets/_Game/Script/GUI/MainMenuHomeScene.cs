@@ -30,6 +30,7 @@ public class MainMenuHomeScene : MonoBehaviour
     {
         Instance = this;
         soundManager = FindObjectOfType<SoundManager>();
+        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, $"{videoFileName}.mp4");
     }
 
     private void Start()
@@ -42,11 +43,10 @@ public class MainMenuHomeScene : MonoBehaviour
 
 
 
-        videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, $"{videoFileName}.mp4");
         videoPlayer.Play();
-        Debug.Log(videoPlayer.url);
-
         ShowInitGame();
+        // Debug.Log(videoPlayer.url);
+
     }
 
 
