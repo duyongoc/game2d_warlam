@@ -9,6 +9,7 @@ public class MainMenuHomeScene : MonoBehaviour
 
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private string videoFileName;
+    [SerializeField] private bool showFlashScene = false;
 
     [Header("[Setting]")]
     public List<GameObject> views;
@@ -52,10 +53,16 @@ public class MainMenuHomeScene : MonoBehaviour
 
     private void ShowInitGame()
     {
-        ShowView("FlashScene");
-        DG.Tweening.DOVirtual.DelayedCall(6, () => ShowView("StartMenu"));
+        if (showFlashScene)
+        {
+            ShowView("FlashScene");
+            DG.Tweening.DOVirtual.DelayedCall(6, () => ShowView("StartMenu"));
+        }
+        else
+        {
+            ShowView("StartMenu");
+        }
 
-        // ShowView("StartMenu");
     }
 
 
