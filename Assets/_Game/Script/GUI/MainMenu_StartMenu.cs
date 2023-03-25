@@ -5,18 +5,24 @@ using UnityEngine.UI;
 public class MainMenu_StartMenu : MonoBehaviour
 {
 
-    public string facebookLink;
-    public string twitterLink;
-    public string moreGameLink;
+    // public string facebookLink;
+    // public string twitterLink;
+    // public string moreGameLink;
+    public GameObject panelExit;
 
     public Image soundImage;
     public Sprite soundOn;
     public Sprite soundOff;
 
+    public Image musicImage;
+    public Sprite musicOn;
+    public Sprite musicOff;
+
+
     SoundManager soundManager;
 
-    // Use this for initialization
-    void Start()
+
+    private void Start()
     {
         if (AudioListener.volume == 0)
             soundImage.sprite = soundOff;
@@ -26,6 +32,7 @@ public class MainMenu_StartMenu : MonoBehaviour
         soundManager = FindObjectOfType<SoundManager>();
 
     }
+
 
     public void TurnSound()
     {
@@ -42,18 +49,42 @@ public class MainMenu_StartMenu : MonoBehaviour
 
         SoundManager.PlaySfx(soundManager.soundClick);
     }
+    
+    
+    public void TurnMusic()
+    {
+        if (AudioListener.volume == 0)
+        {
+            AudioListener.volume = 1;
+            musicImage.sprite = musicOn;
+        }
+        else
+        {
+            AudioListener.volume = 0;
+            musicImage.sprite = musicOff;
+        }
+
+        SoundManager.PlaySfx(soundManager.soundClick);
+    }
+
 
     public void OpenTwitter()
     {
-        Application.OpenURL(twitterLink);
+        // Application.OpenURL(twitterLink);
         SoundManager.PlaySfx(soundManager.soundClick);
     }
+
 
     public void OpenFacebook()
     {
-        Application.OpenURL(facebookLink);
+        // Application.OpenURL(facebookLink);
         SoundManager.PlaySfx(soundManager.soundClick);
     }
 
-	
+
+    public void ShowPanelExit(bool value)
+    {
+        panelExit.SetActive(value);
+    }
+
 }
