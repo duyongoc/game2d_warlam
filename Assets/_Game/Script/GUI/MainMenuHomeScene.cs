@@ -7,9 +7,14 @@ public class MainMenuHomeScene : MonoBehaviour
 {
     public static MainMenuHomeScene Instance;
 
+    [Header("[FLASH]")]
     [SerializeField] private VideoPlayer videoPlayer;
     [SerializeField] private string videoFileName;
     [SerializeField] private bool showFlashScene = false;
+
+    [Header("[MENU]")]
+    [SerializeField] private VideoPlayer videoMenu;
+    [SerializeField] private string videoMenuName;
 
     [Header("[Setting]")]
     public List<GameObject> views;
@@ -31,7 +36,9 @@ public class MainMenuHomeScene : MonoBehaviour
     {
         Instance = this;
         soundManager = FindObjectOfType<SoundManager>();
+
         videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath, $"{videoFileName}.mp4");
+        videoMenu.url = System.IO.Path.Combine(Application.streamingAssetsPath, $"{videoMenuName}.mp4");
     }
 
     private void Start()

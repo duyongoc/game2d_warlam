@@ -39,7 +39,7 @@ public class MonsterSnail : EnemyAI {
 
 	protected override void OnRespawn ()
 	{
-		anim.SetBool ("hit", false);
+		// anim.SetBool ("hit", false);
 		controller.HandlePhysic = true;
 	}
 
