@@ -35,7 +35,7 @@ public class Menu_Gamefinish : MonoBehaviour {
 			timer--;
 			score++;
 			timerText.text = timer.ToString ("000");
-			scoreText.text = score.ToString ("0000000");
+			scoreText.text = score.ToString ("0000");
 			SoundManager.PlaySfx (soundCouting, soundCoutingVolume);
 			StartCoroutine (Counting (countingSpeed * Time.deltaTime));
 		} else
