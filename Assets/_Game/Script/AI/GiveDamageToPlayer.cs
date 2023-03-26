@@ -9,7 +9,7 @@ public class GiveDamageToPlayer : MonoBehaviour
     public GameObject DestroyFx;
 
     [Header("Make Damage")]
-    public Animator animator;
+    // public Animator animator;
     public int DamageToPlayer;
     [Tooltip("delay a moment before give next damage to Player")]
     public float rateDamage = 0.2f;
@@ -60,7 +60,6 @@ public class GiveDamageToPlayer : MonoBehaviour
             Mathf.Clamp(Mathf.Abs(Player.velocity.y), 5, 15) * facingDirectionY * -1));
 
         Player.TakeDamage(DamageToPlayer, Vector2.zero, gameObject);
-        if (animator) animator.SetTrigger("attack");
 
 
         if (isDestroyWhenHitPlayer)

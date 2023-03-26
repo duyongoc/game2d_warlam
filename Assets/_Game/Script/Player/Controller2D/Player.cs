@@ -459,7 +459,7 @@ public class Player : MonoBehaviour, ICanTakeDamage
     public void GiveHealth(int hearthToGive, GameObject instigator)
     {
         Health = Mathf.Min(Health + hearthToGive, maxHealth);
-        GameManager.Instance.ShowFloatingText("+" + hearthToGive, transform.position, Color.red);
+        GameManager.Instance.ShowFloatingText("+" + hearthToGive, transform.position, Color.green);
     }
 
     public void Kill()
