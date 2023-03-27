@@ -24,46 +24,93 @@ public class MainMenu_StartMenu : MonoBehaviour
 
     private void Start()
     {
-        if (AudioListener.volume == 0)
-            soundImage.sprite = soundOff;
-        else
-            soundImage.sprite = soundOn;
-
+        CheckMusic();
         soundManager = FindObjectOfType<SoundManager>();
+    }
+
+
+    private void CheckMusic()
+    {
+        if (SoundManager.SoundVolume == 0)
+        {
+            soundImage.sprite = soundOff;
+        }
+        else
+        {
+            soundImage.sprite = soundOn;
+        }
+
+        if (SoundManager.MusicVolume == 0)
+        {
+            musicImage.sprite = musicOff;
+        }
+        else
+        {
+            musicImage.sprite = musicOn;
+        }
 
     }
+
+    // public void TurnSound()
+    // {
+    //     if (AudioListener.volume == 0)
+    //     {
+    //         AudioListener.volume = 1;
+    //         soundImage.sprite = soundOn;
+    //     }
+    //     else
+    //     {
+    //         AudioListener.volume = 0;
+    //         soundImage.sprite = soundOff;
+    //     }
+    //     SoundManager.PlaySfx(soundManager.soundClick);
+    // }
+
+
+    // public void TurnMusic()
+    // {
+    //     if (AudioListener.volume == 0)
+    //     {
+    //         AudioListener.volume = 1;
+    //         musicImage.sprite = musicOn;
+    //     }
+    //     else
+    //     {
+    //         AudioListener.volume = 0;
+    //         musicImage.sprite = musicOff;
+    //     }
+    //     SoundManager.PlaySfx(soundManager.soundClick);
+    // }
 
 
     public void TurnSound()
     {
-        if (AudioListener.volume == 0)
+        if (SoundManager.SoundVolume == 0)
         {
-            AudioListener.volume = 1;
+            SoundManager.SoundVolume = 1f;
             soundImage.sprite = soundOn;
         }
         else
         {
-            AudioListener.volume = 0;
+            SoundManager.SoundVolume = 0;
             soundImage.sprite = soundOff;
         }
-
         SoundManager.PlaySfx(soundManager.soundClick);
     }
-    
-    
+
+
     public void TurnMusic()
     {
-        if (AudioListener.volume == 0)
+        if (SoundManager.MusicVolume == 0)
         {
-            AudioListener.volume = 1;
+            SoundManager.MusicVolume = 0.5f;
             musicImage.sprite = musicOn;
         }
         else
         {
-            AudioListener.volume = 0;
+            SoundManager.MusicVolume = 0;
             musicImage.sprite = musicOff;
         }
-
         SoundManager.PlaySfx(soundManager.soundClick);
     }
 
@@ -71,14 +118,14 @@ public class MainMenu_StartMenu : MonoBehaviour
     public void OpenTwitter()
     {
         // Application.OpenURL(twitterLink);
-        SoundManager.PlaySfx(soundManager.soundClick);
+        // SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
     public void OpenFacebook()
     {
         // Application.OpenURL(facebookLink);
-        SoundManager.PlaySfx(soundManager.soundClick);
+        // SoundManager.PlaySfx(soundManager.soundClick);
     }
 
 
