@@ -40,11 +40,16 @@ public class SoundManager : MonoBehaviour
 
     private void Awake()
     {
+        if (Instance != null)
+            return;
+
         Instance = this;
         musicAudio = gameObject.AddComponent<AudioSource>();
         musicAudio.loop = true;
         musicAudio.volume = 0.5f;
         soundFx = gameObject.AddComponent<AudioSource>();
+
+        DontDestroyOnLoad(this);
     }
 
     private void Start()
