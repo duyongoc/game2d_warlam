@@ -16,7 +16,7 @@ public class GameManager: MonoBehaviour {
 	private MenuManager menuManager;
 
 	[Header("Default Value")]
-	public int defaultLive = 10;
+	public int defaultLive = 3;
 	public int defaultBullet = 3;
 
 	public Player Player{ get; private set;}
