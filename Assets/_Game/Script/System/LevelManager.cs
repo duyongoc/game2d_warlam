@@ -106,7 +106,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	public void StartGame(){
-		StartCoroutine (CountDownTimer ());
+		// StartCoroutine (CountDownTimer ());
 	}
 
 	public void KillPlayer(){
@@ -121,7 +121,7 @@ public class LevelManager : MonoBehaviour {
 		Camera.isFollowing = true;
 		currentTimer = saveTimerCheckPoint;
 
-		StartCoroutine (CountDownTimer ());
+		// StartCoroutine (CountDownTimer ());
 	}
 
 	IEnumerator CountDownTimer(){
@@ -138,7 +138,7 @@ public class LevelManager : MonoBehaviour {
 			KillPlayer ();
 		}
 
-		if (currentTimer > 0)
-			StartCoroutine (CountDownTimer ());
+		// if (currentTimer > 0)
+		// 	StartCoroutine (CountDownTimer ());
 	}
 }
