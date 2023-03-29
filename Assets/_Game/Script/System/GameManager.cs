@@ -176,7 +176,7 @@ public class GameManager: MonoBehaviour {
 				//Reset the highest world
 				PlayerPrefs.SetInt (highestWorld.ToString (), 1);
 				SavedBullets = defaultBullet;
-				SavedLives = defaultLive;
+				SavedLives = 3;
 				SavedPoints = 0;
 			}
 		}
